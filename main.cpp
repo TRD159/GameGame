@@ -3,6 +3,8 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 #include "CImg.h"
+#include <fstream>
+#include "mapbuilder.h"
 
 int main()
 {
