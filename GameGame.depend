@@ -1,9 +1,8 @@
 # depslib dependency file v1.0
-1573153870 source:c:\users\othscs163\desktop\c++\gamegame\main.cpp
+1573240627 source:c:\users\othscs163\desktop\c++\gamegame\main.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	"stb_image.h"
-	"CImg.h"
 	<fstream>
 	"mapbuilder.h"
 
@@ -490,6 +489,11 @@
 	"tinyexr.h"
 	"CImg.h"
 
-1573155179 c:\users\othscs163\desktop\c++\gamegame\mapbuilder.h
+1573240783 c:\users\othscs163\desktop\c++\gamegame\mapbuilder.h
 	<fstream>
+
+1573240612 source:c:\users\othscs163\desktop\c++\gamegame\mapbuilder.cpp
+	"mapbuilder.h"
+	<fstream>
+	<iostream>
 
