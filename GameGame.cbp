@@ -38,6 +38,7 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
+			<Add option="-std=c++11" />
 			<Add directory="C:/Users/othscs163/Desktop/SFML/CodeBlocks/SFML-2.5.1/include" />
 		</Compiler>
 		<Linker>

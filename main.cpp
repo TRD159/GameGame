@@ -4,6 +4,7 @@
 #include "stb_image.h"
 #include <fstream>
 #include <string>
+#include "mapbuilder.h"
 
 int main()
 {
@@ -30,13 +31,3 @@ int main()
 
     return 0;
 }
-
-class mapBuilder {
-    public:
-        mapBuilder();
-        mapBuilder(string()) {
-
-        }
-    private:
-        string x = "";
-};
