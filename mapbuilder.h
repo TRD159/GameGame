@@ -11,7 +11,7 @@ class mapBuilder
         mapBuilder();
         mapBuilder(std::string name);
         virtual ~mapBuilder();
-        char** getMap();
+        char** getMap(int, int);
     protected:
         std::ifstream file;
     private:

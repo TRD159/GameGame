@@ -8,6 +8,22 @@
 
 int main()
 {
+    mapBuilder m("MapData.txt");
+
+    char** pam = m.getMap(72, 72);
+
+    /*for(int y = 0; y < 72; y++) {
+        for(int x = 0; x < 72; x++) {
+            std::cout << pam[y][x] << " ";
+        }
+        std::cout << std::endl;
+    }*/
+
+    char* line = *pam;
+    for(line; line < *pam + 72; line++) {
+        std::cout << line << std::endl;
+    }
+
     /*
     sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
     sf::CircleShape shape(100.f);
