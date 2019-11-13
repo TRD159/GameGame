@@ -10,7 +10,27 @@ int main()
 {
     mapBuilder m("MapData.txt");
 
-    char** pam = m.getMap(72, 72);
+    sf::Texture red;
+
+    if(!red.loadFromFile("Tile.png")) {
+        std::cout << "didn't work" << std::endl;
+    } else {
+
+    }
+
+    std::vector<std::vector<char>> pam = m.getMap(72, 72);
+
+    std::vector<std::vector<char>>::iterator row;
+    std::vector<char>::iterator col;
+
+    for(row = pam.begin(); row != pam.end(); row++) {
+        for(col = row->begin(); col != row->end(); col++) {
+            std::cout << *col << ' ';
+        }
+        std::cout << std::endl;
+    }
+
+
 
     /*for(int y = 0; y < 72; y++) {
         for(int x = 0; x < 72; x++) {
@@ -19,10 +39,7 @@ int main()
         std::cout << std::endl;
     }*/
 
-    char* line = *pam;
-    for(line; line < *pam + 72; line++) {
-        std::cout << line << std::endl;
-    }
+    //char** temp = pam;
 
     /*
     sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");

@@ -1,6 +1,8 @@
 #include "mapbuilder.h"
 #include <string>
 #include <fstream>
+#include <iostream>
+#include <vector>
 
 mapBuilder::mapBuilder()
 {
@@ -13,25 +15,23 @@ mapBuilder::mapBuilder(std::string nam) {
     file.open(name);
 }
 
-char** mapBuilder::getMap(int height, int length) {
-    char** mep = 0;
-    mep = new char* [height];
+std::vector<std::vector<char>> mapBuilder::getMap(int height, int length) {
+
+    std::vector<std::vector<char>> mep = std::vector<std::vector<char>>(height, std::vector<char>(length, 0));
+
+    std::string line;
 
     int h = 0;
-    while(file) {
-        mep[h] = new char[length];
-
-        char line[length];
-        file.getline(line, length);
-
+    while(file >> line) {
         int l = 0;
         for(char &c: line) {
-            mep[h][l] = c;
+            if(c != 0) {
+                mep[h][l] = c;
+            }
             l++;
         }
         h++;
     }
-
     /*int h = height - 1;
     while(file) {
         int w = 0;
@@ -45,7 +45,6 @@ char** mapBuilder::getMap(int height, int length) {
         }
         h--;
     }*/
-
     return mep;
 }
 

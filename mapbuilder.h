@@ -3,6 +3,7 @@
 
 #include <string>
 #include <fstream>
+#include <vector>
 
 
 class mapBuilder
@@ -11,7 +12,7 @@ class mapBuilder
         mapBuilder();
         mapBuilder(std::string name);
         virtual ~mapBuilder();
-        char** getMap(int, int);
+        std::vector<std::vector<char>> getMap(int, int);
     protected:
         std::ifstream file;
     private:
