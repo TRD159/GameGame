@@ -13,22 +13,53 @@ int main()
     sf::Texture red;
 
     if(!red.loadFromFile("Tile.png")) {
-        std::cout << "didn't work" << std::endl;
+        //std::cout << "didn't work" << std::endl;
     } else {
-
+        //std::cout << "worked" << std::endl;
     }
 
-    std::vector<std::vector<char>> pam = m.getMap(72, 72);
+    red.setRepeated(true);
+
+    sf::Sprite sprite;
+    sprite.setTextureRect(sf::IntRect(sf::Vector2i(0, 0), sf::Vector2i(800, 600)));
+    sprite.setTexture(red);
+
+    sprite.setOrigin(sf::Vector2f(400.f, 300.f));
+
+    sprite.setPosition(400.f, 300.f);
+
+    std::vector<std::vector<char>> pam = m.getMap(6, 8);
 
     std::vector<std::vector<char>>::iterator row;
     std::vector<char>::iterator col;
 
-    for(row = pam.begin(); row != pam.end(); row++) {
-        for(col = row->begin(); col != row->end(); col++) {
-            std::cout << *col << ' ';
+    sf::RenderWindow window(sf::VideoMode(800, 600), "Game");
+
+    while(window.isOpen()) {
+
+        sf::Event event;
+        while(window.pollEvent(event)) {
+            if(event.type == sf::Event::Closed) {
+                window.close();
+            }
         }
-        std::cout << std::endl;
+
+        window.clear();
+
+        //int h = 0;
+        for(row = pam.begin(); row != pam.end(); row++) {
+            //int l = 0;
+            for(col = row->begin(); col != row->end(); col++) {
+                if(*col == '1') {
+                    window.draw(sprite);
+                    //sprite.rotate(1.f);
+                }
+            }
+        }
+
+        window.display();
     }
+
 
 
 

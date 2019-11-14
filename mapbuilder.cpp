@@ -23,8 +23,14 @@ std::vector<std::vector<char>> mapBuilder::getMap(int height, int length) {
 
     int h = 0;
     while(file >> line) {
+        if(h >= height) {
+            break;
+        }
         int l = 0;
         for(char &c: line) {
+            if(l >= length) {
+                break;
+            }
             if(c != 0) {
                 mep[h][l] = c;
             }
