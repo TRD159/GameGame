@@ -5,6 +5,7 @@
 #include <fstream>
 #include <string>
 #include "mapbuilder.h"
+#include "tilemap.h"
 
 int main()
 {
@@ -35,6 +36,11 @@ int main()
 
     sf::RenderWindow window(sf::VideoMode(800, 600), "Game");
 
+    tileMap map;
+    if(!map.load("graphics-vertex-array-tilemap-tileset.png", sf::Vector2u(64, 64), pam, 8, 6)) {
+        return -1;
+    }
+
     while(window.isOpen()) {
 
         sf::Event event;
@@ -45,18 +51,7 @@ int main()
         }
 
         window.clear();
-
-        //int h = 0;
-        for(row = pam.begin(); row != pam.end(); row++) {
-            //int l = 0;
-            for(col = row->begin(); col != row->end(); col++) {
-                if(*col == '1') {
-                    window.draw(sprite);
-                    //sprite.rotate(1.f);
-                }
-            }
-        }
-
+        window.draw(map);
         window.display();
     }
 

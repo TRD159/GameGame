@@ -1,11 +1,12 @@
 # depslib dependency file v1.0
-1573759584 source:c:\users\othscs163\desktop\c++\gamegame\main.cpp
+1573846538 source:c:\users\othscs163\desktop\c++\gamegame\main.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	"stb_image.h"
 	<fstream>
 	<string>
 	"mapbuilder.h"
+	"tilemap.h"
 
 1572982478 c:\users\othscs163\desktop\c++\gamegame\main.h
 
@@ -490,15 +491,30 @@
 	"tinyexr.h"
 	"CImg.h"
 
-1573671903 c:\users\othscs163\desktop\c++\gamegame\mapbuilder.h
+1573846446 c:\users\othscs163\desktop\c++\gamegame\mapbuilder.h
 	<string>
 	<fstream>
 	<vector>
 
-1573758509 source:c:\users\othscs163\desktop\c++\gamegame\mapbuilder.cpp
+1573846446 source:c:\users\othscs163\desktop\c++\gamegame\mapbuilder.cpp
 	"mapbuilder.h"
 	<string>
 	<fstream>
 	<iostream>
 	<vector>
+
+1573846469 source:c:\users\othscs163\desktop\c++\gamegame\tilemap.cpp
+	"tilemap.h"
+	<SFML/Graphics.hpp>
+	<iostream>
+	<fstream>
+	<string>
+	"mapbuilder.h"
+
+1573846405 c:\users\othscs163\desktop\c++\gamegame\tilemap.h
+	<SFML/Graphics.hpp>
+	<iostream>
+	<fstream>
+	<string>
+	"mapbuilder.h"
 
