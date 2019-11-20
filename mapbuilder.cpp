@@ -19,6 +19,7 @@ std::vector<std::vector<int>> mapBuilder::getMap() {
 
     std::vector<std::vector<int>> mep;
 
+    std::string line;
     /*
     std::string line;
 
