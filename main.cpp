@@ -19,7 +19,20 @@ int main()
         //std::cout << "worked" << std::endl;
     }
 
-    red.setRepeated(true);
+    //red.setRepeated(true);
+
+    const int level[] =
+    {
+        0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0,
+        1, 1, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 3, 3, 3,
+        0, 1, 0, 0, 2, 0, 3, 3, 3, 0, 1, 1, 1, 0, 0, 0,
+        0, 1, 1, 0, 3, 3, 3, 0, 0, 0, 1, 1, 1, 2, 0, 0,
+        0, 0, 1, 0, 3, 0, 2, 2, 0, 0, 1, 1, 1, 1, 2, 0,
+        2, 0, 1, 0, 3, 0, 2, 2, 2, 0, 1, 1, 1, 1, 1, 1,
+        0, 0, 1, 0, 3, 2, 2, 2, 0, 0, 0, 0, 1, 1, 1, 1,
+    };
+
 
     sf::Sprite sprite;
     sprite.setTextureRect(sf::IntRect(sf::Vector2i(0, 0), sf::Vector2i(800, 600)));
@@ -29,17 +42,28 @@ int main()
 
     sprite.setPosition(400.f, 300.f);
 
-    std::vector<std::vector<char>> pam = m.getMap(6, 8);
 
-    std::vector<std::vector<char>>::iterator row;
-    std::vector<char>::iterator col;
+    int l = 0;
+    std::vector<std::vector<int>> pam = m.getMap();
+/*
+    int h = 0;
+    for (std::vector<int> c: pam) {
+        for(int &u : c) {
+            std::cout << u;
+        }
+        std::cout << std::endl;
+    }
 
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Game");
+
+    sf::RenderWindow window(sf::VideoMode(512, 256), "Game");
+
 
     tileMap map;
-    if(!map.load("graphics-vertex-array-tilemap-tileset.png", sf::Vector2u(64, 64), pam, 8, 6)) {
+    if(!map.load("graphics-vertex-array-tilemap-tileset.png", sf::Vector2u(32, 32), pam, 16, 8)) {
         return -1;
     }
+
+
 
     while(window.isOpen()) {
 
@@ -53,7 +77,7 @@ int main()
         window.clear();
         window.draw(map);
         window.display();
-    }
+    }*/
 
 
 

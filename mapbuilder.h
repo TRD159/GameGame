@@ -12,7 +12,7 @@ class mapBuilder
         mapBuilder();
         mapBuilder(std::string name);
         virtual ~mapBuilder();
-        std::vector<std::vector<char>> getMap(int, int);
+        std::vector<std::vector<int>> getMap();
     protected:
         std::ifstream file;
     private:
