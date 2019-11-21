@@ -37,8 +37,19 @@ std::vector<std::vector<int>> mapBuilder::getMap() {
         }
     }*/
 
+    int h = 0;
     while(file) {
+        mep.resize(h + 1);
 
+        int l = 0;
+        std::getline(file, line);
+        std::vector<char> lin(line.begin(), line.end());
+
+        for(char &c: lin) {
+            mep[h].resize(l + 1, (c - '0'));
+            l++;
+        }
+        h++;
     }
     return mep;
 }

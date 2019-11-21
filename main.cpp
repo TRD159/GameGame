@@ -1,14 +1,19 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#define STB_IMAGE_IMPLEMENTATION
-#include "stb_image.h"
 #include <fstream>
 #include <string>
 #include "mapbuilder.h"
 #include "tilemap.h"
 
+int tileWidth(32);
+int tileHeight(32);
+
+float scaleWidth(2.f);
+float scaleHeight(2.f);
+
 int main()
 {
+
     mapBuilder m("MapData.txt");
 
     sf::Texture red;
@@ -35,17 +40,17 @@ int main()
 
 
     sf::Sprite sprite;
-    sprite.setTextureRect(sf::IntRect(sf::Vector2i(0, 0), sf::Vector2i(800, 600)));
+    sprite.setTextureRect(sf::IntRect(sf::Vector2i(0, 0), sf::Vector2i(40, 40)));
     sprite.setTexture(red);
 
-    sprite.setOrigin(sf::Vector2f(400.f, 300.f));
+    //sprite.setOrigin(sf::Vector2f(0.f, 0.f));
 
-    sprite.setPosition(400.f, 300.f);
+    sprite.setPosition(200.f, 100.f);
 
 
     int l = 0;
     std::vector<std::vector<int>> pam = m.getMap();
-/*
+
     int h = 0;
     for (std::vector<int> c: pam) {
         for(int &u : c) {
@@ -54,12 +59,16 @@ int main()
         std::cout << std::endl;
     }
 
+    int height = pam.size();
+    int length = pam[0].size();
 
-    sf::RenderWindow window(sf::VideoMode(512, 256), "Game");
+    std::cout << std::endl << height << ", " << length;
+
+    sf::RenderWindow window(sf::VideoMode(length * tileWidth * scaleWidth, height * tileHeight * scaleHeight), "Game");
 
 
     tileMap map;
-    if(!map.load("graphics-vertex-array-tilemap-tileset.png", sf::Vector2u(32, 32), pam, 16, 8)) {
+    if(!map.load("graphics-vertex-array-tilemap-tileset.png", sf::Vector2u(tileWidth, tileHeight), pam, length, height, sf::Vector2f(scaleWidth, scaleHeight))) {
         return -1;
     }
 
@@ -75,9 +84,12 @@ int main()
         }
 
         window.clear();
+
         window.draw(map);
+        window.draw(sprite);
+
         window.display();
-    }*/
+    }
 
 
 

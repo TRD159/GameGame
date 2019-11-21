@@ -13,7 +13,7 @@ class tileMap : public sf::Drawable, public sf::Transformable
         tileMap();
         virtual ~tileMap();
         bool load(const std::string&, sf::Vector2u, std::vector<int>, unsigned int, unsigned int);
-        bool load(const std::string&, sf::Vector2u, std::vector<std::vector<int>>, unsigned int, unsigned int);
+        bool load(const std::string&, sf::Vector2u, std::vector<std::vector<int>>, unsigned int, unsigned int, sf::Vector2f);
         bool load(const std::string&, sf::Vector2u, const int*, unsigned int, unsigned int);
     protected:
 
