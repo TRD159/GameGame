@@ -52,6 +52,8 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="mapbuilder.cpp" />
 		<Unit filename="mapbuilder.h" />
+		<Unit filename="player.cpp" />
+		<Unit filename="player.h" />
 		<Unit filename="tilemap.cpp" />
 		<Unit filename="tilemap.h" />
 		<Extensions>
