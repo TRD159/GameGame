@@ -1,11 +1,12 @@
 # depslib dependency file v1.0
-1574365333 source:c:\users\othscs163\desktop\c++\gamegame\main.cpp
+1575315235 source:c:\users\othscs163\desktop\c++\gamegame\main.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	<fstream>
 	<string>
 	"mapbuilder.h"
 	"tilemap.h"
+	"player.h"
 
 1572982478 c:\users\othscs163\desktop\c++\gamegame\main.h
 
@@ -517,7 +518,7 @@
 	<string>
 	"mapbuilder.h"
 
-1574365242 source:c:\users\othscs163\desktop\c++\gamegame\player.cpp
+1575315286 source:c:\users\othscs163\desktop\c++\gamegame\player.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	<fstream>
@@ -526,11 +527,14 @@
 	"tilemap.h"
 	"player.h"
 
-1574365387 c:\users\othscs163\desktop\c++\gamegame\player.h
+1575315244 c:\users\othscs163\desktop\c++\gamegame\player.h
 	<SFML/Graphics.hpp>
 	<iostream>
 	<fstream>
 	<string>
 	"mapbuilder.h"
 	"tilemap.h"
+	"PlayerStates.h"
+
+1574451253 c:\users\othscs163\desktop\c++\gamegame\playerstates.h
 

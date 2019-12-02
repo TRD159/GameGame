@@ -11,18 +11,41 @@ Player::Player()
     //ctor
 }
 
+Player::Player(std::string name) {
+    Player::name = name;
+}
+
 Player::~Player()
 {
     //dtor
 }
 
-bool Player::load(const std::string& fileName, int width, int height) {
-    if(!spriteSheet.loadFromFile(fileName)) {
+bool Player::load(sf::Vector2f pos, sf::Vector2f siz) {
+    if(!spriteSheet.loadFromFile(name))
         return false;
-    }
 
-    for(int x = 0; x < spriteSheet.getSize().x; x += width) {
+    this->setPosition(pos);
 
-    }
+    vertices.setPrimitiveType(sf::Quads);
+    vertices.resize(4);
 
+    vertices[0].position = sf::Vector2f(0, 0);
+    vertices[1].position = sf::Vector2f(siz.x, 0);
+    vertices[2].position = sf::Vector2f(0, siz.y);
+    vertices[3].position = sf::Vector2f(siz.x, siz.y);
+
+    vertices[0].texCoords = sf::Vector2f(0, 0);
+    vertices[1].texCoords = sf::Vector2f(siz.x, 0);
+    vertices[2].texCoords = sf::Vector2f(0, siz.y);
+    vertices[3].texCoords = sf::Vector2f(siz.x, siz.y);
+
+    return true;
+}
+
+void Player::draw(sf::RenderTarget& target, sf::RenderStates states) const {
+    states.transform *= getTransform();
+
+    states.texture = &spriteSheet;
+
+    target.draw(vertices, states);
 }

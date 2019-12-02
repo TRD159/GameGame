@@ -49,6 +49,7 @@
 			<Add library="C:/Users/othscs163/Desktop/SFML/CodeBlocks/SFML-2.5.1/lib/libsfml-window.a" />
 			<Add directory="C:/Users/othscs163/Desktop/SFML/CodeBlocks/SFML-2.5.1/lib" />
 		</Linker>
+		<Unit filename="PlayerStates.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="mapbuilder.cpp" />
 		<Unit filename="mapbuilder.h" />

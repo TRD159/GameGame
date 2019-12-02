@@ -4,6 +4,7 @@
 #include <string>
 #include "mapbuilder.h"
 #include "tilemap.h"
+#include "player.h"
 
 int tileWidth(32);
 int tileHeight(32);
@@ -72,6 +73,9 @@ int main()
         return -1;
     }
 
+    Player player("Tile.png");
+    player.load(sf::Vector2f(100.f, 100.f), sf::Vector2f(100, 100));
+
 
 
     while(window.isOpen()) {
@@ -85,8 +89,8 @@ int main()
 
         window.clear();
 
-        window.draw(map);
-        window.draw(sprite);
+        //window.draw(map);
+        window.draw(player);
 
         window.display();
     }
