@@ -15,7 +15,7 @@ class Player : public sf::Drawable, public sf::Transformable
         Player();
         Player(std::string);
         virtual ~Player();
-        bool move(int, int);
+        bool move(float, float);
         bool load(sf::Vector2f, sf::Vector2f);
     protected:
 

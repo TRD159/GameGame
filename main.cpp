@@ -39,14 +39,7 @@ int main()
         0, 0, 1, 0, 3, 2, 2, 2, 0, 0, 0, 0, 1, 1, 1, 1,
     };
 
-
-    sf::Sprite sprite;
-    sprite.setTextureRect(sf::IntRect(sf::Vector2i(0, 0), sf::Vector2i(40, 40)));
-    sprite.setTexture(red);
-
     //sprite.setOrigin(sf::Vector2f(0.f, 0.f));
-
-    sprite.setPosition(200.f, 100.f);
 
 
     int l = 0;
@@ -65,17 +58,24 @@ int main()
 
     std::cout << std::endl << height << ", " << length;
 
-    sf::RenderWindow window(sf::VideoMode(length * tileWidth * scaleWidth, height * tileHeight * scaleHeight), "Game");
+    //sf::RenderWindow window(sf::VideoMode(length * tileWidth * scaleWidth, height * tileHeight * scaleHeight), "Game");
 
+    sf::RenderWindow window(sf::VideoMode(400, 400), "Game");
 
     tileMap map;
     if(!map.load("graphics-vertex-array-tilemap-tileset.png", sf::Vector2u(tileWidth, tileHeight), pam, length, height, sf::Vector2f(scaleWidth, scaleHeight))) {
         return -1;
     }
 
-    Player player("Tile.png");
-    player.load(sf::Vector2f(100.f, 100.f), sf::Vector2f(100, 100));
+    sf::View view(sf::FloatRect(0.f, 0.f, 400.f, 400.f));
 
+    view.setCenter(300.f, 300.f);
+    view.setViewport(sf::FloatRect(0, 0, 1, 1));
+
+    window.setView(view);
+
+    Player player("Tile.png");
+    player.load(sf::Vector2f(0.f, 0.f), sf::Vector2f(50.f, 50.f));
 
 
     while(window.isOpen()) {
@@ -87,9 +87,27 @@ int main()
             }
         }
 
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+            player.move(-0.1f, 0.f);
+        }
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+            player.move(0.1f, 0.f);
+        }
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
+            player.move(0.f, -0.1f);
+        }
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
+            player.move(0.f, 0.1f);
+        }
+
+        view.setCenter(player.getPosition().x, player.getPosition().y);
+        window.setView(view);
+
+        //std::cout << view.getCenter().x << " " << view.getCenter().y << std::endl;
+
         window.clear();
 
-        //window.draw(map);
+        window.draw(map);
         window.draw(player);
 
         window.display();
