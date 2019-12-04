@@ -17,10 +17,12 @@ class Player : public sf::Drawable, public sf::Transformable
         virtual ~Player();
         bool move(float, float);
         bool load(sf::Vector2f, sf::Vector2f);
+        sf::Vector2f getSiiz();
     protected:
 
     private:
         virtual void draw(sf::RenderTarget&, sf::RenderStates) const;
+        sf::Vector2f siiz;
         std::vector<sf::Texture> Textures;
         std::string name;
         sf::Texture spriteSheet;

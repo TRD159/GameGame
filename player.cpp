@@ -24,7 +24,7 @@ bool Player::load(sf::Vector2f pos, sf::Vector2f siz) {
     if(!spriteSheet.loadFromFile(name))
         return false;
 
-    this->setOrigin(siz.x/2.f, siz.y/2.f);
+    //this->setOrigin(siz.x/2.f, siz.y/2.f);
 
     this->setPosition(pos);
 
@@ -45,6 +45,8 @@ bool Player::load(sf::Vector2f pos, sf::Vector2f siz) {
     vertices[2].texCoords = sf::Vector2f(siz.x, siz.y);
     vertices[3].texCoords = sf::Vector2f(0, siz.y);
 
+    siiz = siz;
+
     return true;
 }
 
@@ -61,4 +63,8 @@ void Player::draw(sf::RenderTarget& target, sf::RenderStates states) const {
     states.texture = &spriteSheet;
 
     target.draw(vertices, states);
+}
+
+sf::Vector2f Player::getSiiz() {
+    return siiz;
 }

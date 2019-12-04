@@ -5,6 +5,7 @@
 #include "mapbuilder.h"
 #include "tilemap.h"
 #include "player.h"
+#include <thread>
 
 int tileWidth(32);
 int tileHeight(32);
@@ -27,25 +28,8 @@ int main()
 
     //red.setRepeated(true);
 
-    const int level[] =
-    {
-        0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-        0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0,
-        1, 1, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 3, 3, 3,
-        0, 1, 0, 0, 2, 0, 3, 3, 3, 0, 1, 1, 1, 0, 0, 0,
-        0, 1, 1, 0, 3, 3, 3, 0, 0, 0, 1, 1, 1, 2, 0, 0,
-        0, 0, 1, 0, 3, 0, 2, 2, 0, 0, 1, 1, 1, 1, 2, 0,
-        2, 0, 1, 0, 3, 0, 2, 2, 2, 0, 1, 1, 1, 1, 1, 1,
-        0, 0, 1, 0, 3, 2, 2, 2, 0, 0, 0, 0, 1, 1, 1, 1,
-    };
-
-    //sprite.setOrigin(sf::Vector2f(0.f, 0.f));
-
-
-    int l = 0;
     std::vector<std::vector<int>> pam = m.getMap();
 
-    int h = 0;
     for (std::vector<int> c: pam) {
         for(int &u : c) {
             std::cout << u;
@@ -69,14 +53,13 @@ int main()
 
     sf::View view(sf::FloatRect(0.f, 0.f, 400.f, 400.f));
 
-    view.setCenter(300.f, 300.f);
+    view.setCenter(0.f, 0.f);
     view.setViewport(sf::FloatRect(0, 0, 1, 1));
 
     window.setView(view);
 
     Player player("Tile.png");
-    player.load(sf::Vector2f(0.f, 0.f), sf::Vector2f(50.f, 50.f));
-
+    player.load(sf::Vector2f(0.f, 0.f), sf::Vector2f(32.f, 32.f));
 
     while(window.isOpen()) {
 
@@ -100,7 +83,32 @@ int main()
             player.move(0.f, 0.1f);
         }
 
-        view.setCenter(player.getPosition().x, player.getPosition().y);
+        sf::Vector2i pix = window.mapCoordsToPixel(player.getPosition());
+
+        std::cout << pix.x << " " << pix.y << std::endl;
+
+        if(pix.x < 32) {
+            view.setCenter(view.getCenter().x - 0.1, view.getCenter().y);
+        }
+        if(pix.x + player.getSiiz().x > window.getSize().x - 32) {
+            view.setCenter(view.getCenter().x + 0.1, view.getCenter().y);
+        }
+
+        if(pix.y < 32) {
+            view.setCenter(view.getCenter().x, view.getCenter().y - 0.1);
+        }
+        if(pix.y + player.getSiiz().y > window.getSize().y - 32) {
+            view.setCenter(view.getCenter().x, view.getCenter().y + 0.1);
+        }
+
+        /*if(pix.x - 384 < window.getSize().x) {
+            view.setCenter(sf::Vector2f(view.getCenter().x + 0.1, view.getCenter().y));
+        }
+        if(pix.x + 384 > 0) {
+            view.setCenter(sf::Vector2f(view.getCenter().x - 0.1, view.getCenter().y));
+        }*/
+
+        //view.setCenter(player.getPosition().x, player.getPosition().y);
         window.setView(view);
 
         //std::cout << view.getCenter().x << " " << view.getCenter().y << std::endl;
