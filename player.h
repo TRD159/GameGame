@@ -9,7 +9,7 @@
 #include "tilemap.h"
 #include "PlayerStates.h"
 
-class Player : public sf::Drawable, public sf::Transformable
+class Player : public sf::Drawable, public sf::Transformable, public Collidable
 {
     public:
         Player();
