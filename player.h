@@ -8,9 +8,9 @@
 #include "mapbuilder.h"
 #include "tilemap.h"
 #include "PlayerStates.h"
+#include "collidable.h"
 
-class Player : public sf::Drawable, public sf::Transformable, public Collidable
-{
+class Player: public sf::Drawable, public sf::Transformable, public Collidable {
     public:
         Player();
         Player(std::string);

@@ -30,7 +30,7 @@ bool Player::load(sf::Vector2f pos, sf::Vector2f siz) {
 
     vertices.setPrimitiveType(sf::Quads);
 
-    collision = sf::Rect(pos.x, pos.y, siz.x, siz.y);
+    //collision = sf::Rect(pos.x, pos.y, siz.x, siz.y);
 
     //Resize this to however many rects the character sprite will have * 4
     vertices.resize(4);
@@ -56,6 +56,9 @@ bool Player::move(float hor, float ver) {
     sf::Vector2f pos = getPosition();
 
     setPosition(pos.x + hor, pos.y + ver);
+
+    mov(hor, ver);
+
     return true;
 }
 

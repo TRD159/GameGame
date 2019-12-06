@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1575487637 source:c:\users\othscs163\desktop\c++\gamegame\main.cpp
+1575658594 source:c:\users\othscs163\desktop\c++\gamegame\main.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	<fstream>
@@ -519,7 +519,7 @@
 	<string>
 	"mapbuilder.h"
 
-1575486598 source:c:\users\othscs163\desktop\c++\gamegame\player.cpp
+1575659701 source:c:\users\othscs163\desktop\c++\gamegame\player.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	<fstream>
@@ -528,7 +528,7 @@
 	"tilemap.h"
 	"player.h"
 
-1575486598 c:\users\othscs163\desktop\c++\gamegame\player.h
+1575659212 c:\users\othscs163\desktop\c++\gamegame\player.h
 	<SFML/Graphics.hpp>
 	<iostream>
 	<fstream>
@@ -536,6 +536,30 @@
 	"mapbuilder.h"
 	"tilemap.h"
 	"PlayerStates.h"
+	"collidable.h"
 
 1574451253 c:\users\othscs163\desktop\c++\gamegame\playerstates.h
+
+1575657956 source:c:\users\othscs163\desktop\c++\gamegame\bject.cpp
+	"bject.h"
+
+1575658064 c:\users\othscs163\desktop\c++\gamegame\bject.h
+	<SFML/Graphics.hpp>
+	<iostream>
+	<fstream>
+	<string>
+	"mapbuilder.h"
+	"tilemap.h"
+	"player.h"
+
+1575659601 c:\users\othscs163\desktop\c++\gamegame\collidable.h
+	<SFML/Graphics.hpp>
+	<iostream>
+	<fstream>
+	<string>
+	"mapbuilder.h"
+	"tilemap.h"
+
+1575659085 source:c:\users\othscs163\desktop\c++\gamegame\collidable.cpp
+	"collidable.h"
 
